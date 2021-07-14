@@ -9,7 +9,7 @@ const Navbar = () => {
   const { setOpen } = useContext(MainContext);
   const [isHover, setHover] = useState(false);
   return (
-    <AppBar className={classes.appBar} elevation={0}>
+    <AppBar className={classes.appBar} elevation={0} position="sticky">
       <Toolbar className={classes.navToolBar}>
         <div className={classes.leftNavBar}>
           <IconButton
