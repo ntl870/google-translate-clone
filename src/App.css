@@ -1,5 +1,13 @@
 .App {
   text-align: center;
   height: 100vh;
+  /* overflow-y: hidden; */
+}
+.MuiFab-root {
+  background-color: white !important;
+}
+.MuiFab-root:hover {
+  text-decoration: none !important;
+  background-color: rgba(0, 0, 0, 0.1) !important;
 }
 

@@ -4,15 +4,24 @@ export default makeStyles((theme) => {
     root: {
       display: "flex",
     },
+    center: {
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    },
     translatorBox: {
       margin: "0 auto",
       height: "221px",
       backgroundColor: "#fff",
+      marginTop: "40px",
       boxShadow: "0 1px 4px 0 rgba(0,0,0,0.37)",
       borderRadius: "8px",
-      marginTop: "40px",
       display: "flex",
       flexDirection: "column",
+    },
+    translatorBoxshadow: {
+      boxShadow: "0 0px 0px 0 rgba(0,0,0,0.37)",
+      // borderRadius: "0px",
     },
     fullWidth: {
       width: "100%",
@@ -20,9 +29,20 @@ export default makeStyles((theme) => {
     breakpointWidth: {
       width: "67%",
     },
+    languagesBar: {
+      width: "50%",
+      borderBottom: "1px solid rgba(0,0,0,0.12)",
+      display: "flex",
+      flexDirection: "row",
+    },
     languagesBarDiv: {
       display: "flex",
       flexDirection: "row",
+      borderTopLeftRadius: "8px",
+      borderTopRightRadius: "8px",
+    },
+    languagesBarDivShadow: {
+      boxShadow: "0 1px 4px 0 rgba(0,0,0,0.37)",
     },
     textInputDiv: {
       display: "flex",
@@ -36,7 +56,6 @@ export default makeStyles((theme) => {
       height: "120px",
     },
     textArea: {
-      overflow: "hidden",
       border: "none",
       resize: "none",
       height: "100%",
@@ -51,5 +70,9 @@ export default makeStyles((theme) => {
       paddingRight: "20px",
       fontSize: "1.6rem",
     },
+    dropdownButton: {
+      boxShadow: "0px 0px 0px 0px #ffffff",
+    },
+    backgroundColor: "white !important",
   };
 });
