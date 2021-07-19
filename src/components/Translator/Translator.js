@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useLayoutEffect, useContext } from "react";
-import { Tabs, Box, Divider } from "@material-ui/core";
+import React, { useContext } from "react";
 import { useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import LanguagesBarLeft from "./LanguagesBarLeft";
 import LanguagesBarRight from "./LanguagesBarRight";
-import TextInputLeft from "./TextInputLeft";
-import TextInputRight from "./TextInputRight";
+import TranslateArea from "./TranslateArea";
 import MainContext from "../../context/MainContext";
 import DropdownContentLeft from "../DropdownContentLeft/DropdownContentLeft";
 import DropdownContentRight from "../DropdownContentRight/DropdownContentRight";
@@ -42,9 +40,7 @@ const Translator = () => {
         <DropdownContentRight />
       ) : (
         <div className={classes.textInputDiv}>
-          <TextInputLeft />
-          <Divider orientation="vertical" flexItem />
-          <TextInputRight />
+          <TranslateArea />
         </div>
       )}
     </div>

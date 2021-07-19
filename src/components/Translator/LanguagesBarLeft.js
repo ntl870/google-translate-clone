@@ -45,8 +45,8 @@ const LanguagesBarLeft = () => {
           return (
             <Tab
               style={{ minWidth: "auto" }}
-              label={<strong>{item}</strong>}
-              key={item}
+              label={<strong>{item.name}</strong>}
+              key={item.code}
             />
           );
         })}

@@ -63,18 +63,17 @@ const DropdownContentLeft = () => {
           <>
             {state.langs.includes(item.name) ? (
               <Button
-                key={item.name}
-                onClick={() => handleLanguages(item.name)}
+                key={item.code}
+                onClick={() => handleLanguages(item)}
                 className={classes.activeButton}
-                style={{ }}
               >
                 <DoneIcon />
                 <Typography>{item.name}</Typography>
               </Button>
             ) : (
               <Button
-                key={item.name}
-                onClick={() => handleLanguages(item.name)}
+                key={item.code}
+                onClick={() => handleLanguages(item)}
                 className={classes.regularButton}
               >
                 <Typography>{item.name}</Typography>

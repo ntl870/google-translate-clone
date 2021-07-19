@@ -16,6 +16,7 @@ const MainPage = () => {
     left: false,
     right: false,
   });
+  const storedInput = JSON.parse(sessionStorage.getItem("input_text")) || "";
   return (
     <MainContext.Provider
       value={{
@@ -29,6 +30,7 @@ const MainPage = () => {
         setOutputTabID: (e) => setOutputTabID(e),
         inputLang: inputState.langs[inputState.active],
         outputLang: outputState.langs[outputState.active],
+        storedInput: storedInput,
       }}
     >
       <div className={classes.upperBackground}></div>

@@ -1,5 +1,10 @@
 let languages = JSON.parse(localStorage.getItem("input_lang")) || {
-  langs: ["Languages Detection"],
+  langs: [
+    {
+      code: "detect",
+      name: "Languages Detection",
+    },
+  ],
   active: 0,
 };
 

@@ -1,5 +1,5 @@
 let languages = JSON.parse(localStorage.getItem("output_lang")) || {
-  langs: ["Vietnamese"],
+  langs: [{ name: "Vietnamese", code: "vi" }],
   active: 0,
 };
 
