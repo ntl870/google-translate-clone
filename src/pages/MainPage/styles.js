@@ -1,9 +1,9 @@
 import { makeStyles } from "@material-ui/styles";
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   root: {
     display: "flex",
   },
-  upperBackground:{
+  upperBackground: {
     position: "absolute",
     height: "163px",
     top: "0px",
@@ -11,5 +11,5 @@ export default makeStyles((theme) => ({
     width: "100%",
     background: "#fafafa",
     borderBottom: "1px solid rgba(0,0,0,0.12)",
-  }
+  },
 }));

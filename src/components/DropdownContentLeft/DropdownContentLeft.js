@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { Button, Typography, useMediaQuery } from "@material-ui/core";
+import React, { useContext, Fragment } from "react";
+import { Button, Typography } from "@material-ui/core";
 import { langInfo } from "../../utils/langsInfo";
 import { useSelector, useDispatch } from "react-redux";
 import MainContext from "../../context/MainContext";
 import DoneIcon from "@material-ui/icons/Done";
+import { isContained } from "../../utils/isContained";
 import useStyles from "./styles";
 
 const DropdownContentLeft = () => {
@@ -55,15 +56,15 @@ const DropdownContentLeft = () => {
       left: false,
     }));
   };
+
   console.log(state);
   return (
     <div className={classes.mainDropdownContainer}>
       {langInfo.map((item) => {
         return (
-          <>
-            {state.langs.includes(item) ? (
+          <Fragment key={item.code}>
+            {isContained(state.langs, "name", item.name) ? (
               <Button
-                key={item.name}
                 onClick={() => handleLanguages(item)}
                 className={classes.activeButton}
               >
@@ -72,14 +73,13 @@ const DropdownContentLeft = () => {
               </Button>
             ) : (
               <Button
-                key={item.name}
                 onClick={() => handleLanguages(item)}
                 className={classes.regularButton}
               >
                 <Typography>{item.name}</Typography>
               </Button>
             )}
-          </>
+          </Fragment>
         );
       })}
     </div>

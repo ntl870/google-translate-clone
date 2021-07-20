@@ -13,7 +13,17 @@ const inputLang = (state = languages, action) => {
     case "INPUT":
       state = action.payload.data;
       localStorage.setItem("input_lang", JSON.stringify(state));
-      return state;
+      return {
+        ...action.payload.data,
+        langs: state.langs,
+      };
+    case "DETECT":
+      state = action.payload.data;
+      localStorage.setItem("input_lang", JSON.stringify(state));
+      return {
+        ...action.payload.data,
+        langs: state.langs,
+      };
     default:
       return state;
   }

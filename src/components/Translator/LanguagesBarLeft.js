@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Tabs, Tab, Button, Fab } from "@material-ui/core";
+import React, { useContext } from "react";
+import { Tabs, Tab, Fab } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MainContext from "../../context/MainContext";
@@ -29,6 +29,7 @@ const LanguagesBarLeft = () => {
   const handleTabID = (e, id) => {
     let tempState = state;
     tempState.active = id;
+    tempState.langs[0].name = "Languages Detection";
     setInputTabID(id);
     dispatch({ type: "INPUT", payload: { data: tempState } });
   };

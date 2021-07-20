@@ -11,7 +11,7 @@ export default makeStyles((theme) => {
     },
     translatorBox: {
       margin: "0 auto",
-      height: "221px",
+      height: "241px",
       backgroundColor: "#fff",
       marginTop: "40px",
       boxShadow: "0 1px 4px 0 rgba(0,0,0,0.37)",
@@ -21,7 +21,6 @@ export default makeStyles((theme) => {
     },
     translatorBoxshadow: {
       boxShadow: "0 0px 0px 0 rgba(0,0,0,0.37)",
-      // borderRadius: "0px",
     },
     fullWidth: {
       width: "100%",
@@ -47,13 +46,13 @@ export default makeStyles((theme) => {
     textInputDiv: {
       display: "flex",
       flexDirection: "row",
-      height: "173px",
+      height: "193px",
     },
     textAreaDiv: {
       width: "50%",
       alignItems: "start",
       display: "flex",
-      height: "120px",
+      height: "140px",
     },
     textArea: {
       border: "none",
@@ -68,6 +67,7 @@ export default makeStyles((theme) => {
       paddingBottom: "20px",
       paddingLeft: "20px",
       paddingRight: "20px",
+      marginBottom: "-20px",
       fontSize: "1.6rem",
     },
     dropdownButton: {

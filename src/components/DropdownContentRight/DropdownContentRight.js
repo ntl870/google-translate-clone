@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
-import { Button, Typography, useMediaQuery } from "@material-ui/core";
+import React, { useContext, Fragment } from "react";
+import { Button, Typography } from "@material-ui/core";
 import { langInfo } from "../../utils/langsInfo";
 import { useSelector, useDispatch } from "react-redux";
 import MainContext from "../../context/MainContext";
 import DoneIcon from "@material-ui/icons/Done";
+import { isContained } from "../../utils/isContained";
 import useStyles from "./styles";
 
 const DropdownContentLeft = () => {
@@ -21,6 +22,7 @@ const DropdownContentLeft = () => {
       setOutputTabID(tempState.langs.indexOf(target));
       dispatch({ type: "OUTPUT", payload: { data: tempState } });
     } else {
+      let clone = tempState.langs;
       switch (tempState.langs.length) {
         case 1:
           tempState = {
@@ -37,8 +39,7 @@ const DropdownContentLeft = () => {
           setOutputTabID(2);
           break;
         case 3:
-          let clone = tempState.langs;
-          clone.shift();
+          clone.pop();
           clone.unshift(target);
           tempState = {
             active: 0,
@@ -60,8 +61,8 @@ const DropdownContentLeft = () => {
     <div className={classes.mainDropdownContainer}>
       {langInfo.map((item) => {
         return (
-          <>
-            {state.langs.includes(item.name) ? (
+          <Fragment key={item.code}>
+            {isContained(state.langs, "name", item.name) ? (
               <Button
                 key={item.code}
                 onClick={() => handleLanguages(item)}
@@ -79,7 +80,7 @@ const DropdownContentLeft = () => {
                 <Typography>{item.name}</Typography>
               </Button>
             )}
-          </>
+          </Fragment>
         );
       })}
     </div>
