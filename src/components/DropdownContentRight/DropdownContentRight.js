@@ -22,33 +22,21 @@ const DropdownContentLeft = () => {
       setOutputTabID(tempState.langs.indexOf(target));
       dispatch({ type: "OUTPUT", payload: { data: tempState } });
     } else {
-      let clone = tempState.langs;
-      switch (tempState.langs.length) {
-        case 1:
-          tempState = {
-            active: 1,
-            langs: [...tempState.langs, target],
-          };
-          setOutputTabID(1);
-          break;
-        case 2:
-          tempState = {
-            active: 2,
-            langs: [...tempState.langs, target],
-          };
-          setOutputTabID(2);
-          break;
-        case 3:
-          clone.pop();
-          clone.unshift(target);
-          tempState = {
-            active: 0,
-            langs: clone,
-          };
-          setOutputTabID(0);
-          break;
-        default:
+      if (tempState.langs.length <= 2) {
+        tempState = {
+          active: 1,
+          langs: [target, ...tempState.langs],
+        };
+      } else {
+        let clone = tempState.langs;
+        clone.pop();
+        clone.unshift(target);
+        tempState = {
+          active: 0,
+          langs: clone,
+        };
       }
+      setOutputTabID(0);
       dispatch({ type: "OUTPUT", payload: { data: tempState } });
     }
     setLanguagesOpen((prev) => ({

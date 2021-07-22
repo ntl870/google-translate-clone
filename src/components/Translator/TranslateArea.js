@@ -73,6 +73,7 @@ const TextInputLeft = () => {
     }
   };
 
+  
   useEffect(() => {
     const handleTranslate = setTimeout(() => {
       translateText(inputText, inputLang.code, outputLang.code);

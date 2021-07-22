@@ -57,7 +57,6 @@ const DropdownContentLeft = () => {
     }));
   };
 
-  console.log(state);
   return (
     <div className={classes.mainDropdownContainer}>
       {langInfo.map((item) => {

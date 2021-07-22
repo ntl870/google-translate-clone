@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Tabs, Tab, Fab } from "@material-ui/core";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
@@ -12,6 +12,7 @@ const LanguagesBarLeft = () => {
     useContext(MainContext);
   const state = useSelector((state) => state.input);
   const dispatch = useDispatch();
+  const [isChanged, setChanged] = useState(false);
 
   const handleDropButton = () => {
     if (languagesOpen.right)
@@ -27,10 +28,22 @@ const LanguagesBarLeft = () => {
   };
 
   const handleTabID = (e, id) => {
+    if (inputTabID === 0)
+      if (id === 0)
+        setLanguagesOpen((prev) => ({
+          ...prev,
+          left: !prev.left,
+        }));
+      else
+        setLanguagesOpen((prev) => ({
+          ...prev,
+          left: false,
+        }));
+
+    setInputTabID(id);
     let tempState = state;
     tempState.active = id;
-    tempState.langs[0].name = "Languages Detection";
-    setInputTabID(id);
+    if (id !== 0) tempState.langs[0].name = "Languages Detection";
     dispatch({ type: "INPUT", payload: { data: tempState } });
   };
 
@@ -54,7 +67,6 @@ const LanguagesBarLeft = () => {
       </Tabs>
       <div className={classes.center} style={{ marginLeft: "15px" }}>
         <Fab
-          aria-label="Add"
           className={classes.dropdownButton}
           onClick={handleDropButton}
           elevation={0}

@@ -28,7 +28,6 @@ module.exports = {
     "no-delete-var": "warn",
     "block-scoped-var": "warn",
     "vars-on-top": "warn",
-    "space-before-blocks": "warn",
     yoda: "error",
     "keyword-spacing": "warn",
     "unused-imports/no-unused-imports": "warn",
@@ -45,5 +44,6 @@ module.exports = {
     "react/jsx-no-target-blank": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
+    "react/jsx-no-undef": 2,
   },
 };

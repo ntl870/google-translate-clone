@@ -30,7 +30,7 @@ export default makeStyles((theme) => {
     },
     languagesBar: {
       width: "50%",
-      borderBottom: "1px solid rgba(0,0,0,0.12)",
+      // borderBottom: "1px solid rgba(0,0,0,0.12)",
       display: "flex",
       flexDirection: "row",
     },
@@ -39,6 +39,7 @@ export default makeStyles((theme) => {
       flexDirection: "row",
       borderTopLeftRadius: "8px",
       borderTopRightRadius: "8px",
+      borderBottom: "1px solid rgba(0,0,0,0.12)",
     },
     languagesBarDivShadow: {
       boxShadow: "0 1px 4px 0 rgba(0,0,0,0.37)",

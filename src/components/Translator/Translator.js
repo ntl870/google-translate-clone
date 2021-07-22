@@ -7,6 +7,7 @@ import TranslateArea from "./TranslateArea";
 import MainContext from "../../context/MainContext";
 import DropdownContentLeft from "../DropdownContentLeft/DropdownContentLeft";
 import DropdownContentRight from "../DropdownContentRight/DropdownContentRight";
+import SwitchButton from "../SwitchButton/SwitchButton";
 import clsx from "clsx";
 import useStyles from "./styles";
 
@@ -32,6 +33,7 @@ const Translator = () => {
         })}
       >
         <LanguagesBarLeft />
+        <SwitchButton />
         <LanguagesBarRight />
       </div>
       {languagesOpen.left ? (

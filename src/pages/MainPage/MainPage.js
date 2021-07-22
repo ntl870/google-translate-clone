@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import SideDrawer from "../../components/SideDrawer/SideDrawer";
 import Translator from "../../components/Translator/Translator";
@@ -17,6 +17,7 @@ const MainPage = () => {
     right: false,
   });
   const storedInput = JSON.parse(sessionStorage.getItem("input_text")) || "";
+
   return (
     <MainContext.Provider
       value={{
