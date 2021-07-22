@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/styles";
-export default makeStyles((theme) => {
+export default makeStyles(() => {
   return {
     root: {
       display: "flex",
@@ -74,6 +74,8 @@ export default makeStyles((theme) => {
     dropdownButton: {
       boxShadow: "0px 0px 0px 0px #ffffff",
     },
-    backgroundColor: "white !important",
+    breakPointButton: {
+      minWidth: "100%",
+    },
   };
 });

@@ -1,5 +1,6 @@
-import React, { useContext, useState } from "react";
-import { Tabs, Tab, Fab } from "@material-ui/core";
+import React, { useContext } from "react";
+import { Tabs, Tab, Fab, useMediaQuery, Button } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import ExpandLessIcon from "@material-ui/icons/ExpandLess";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import MainContext from "../../context/MainContext";
@@ -12,8 +13,8 @@ const LanguagesBarLeft = () => {
     useContext(MainContext);
   const state = useSelector((state) => state.input);
   const dispatch = useDispatch();
-  const [isChanged, setChanged] = useState(false);
-
+  const theme = useTheme();
+  const breakPoint = useMediaQuery(theme.breakpoints.up("md"));
   const handleDropButton = () => {
     if (languagesOpen.right)
       setLanguagesOpen((prev) => ({
@@ -49,32 +50,44 @@ const LanguagesBarLeft = () => {
 
   return (
     <div className={classes.languagesBar}>
-      <Tabs
-        value={inputTabID}
-        onChange={(e, id) => handleTabID(e, id)}
-        indicatorColor="primary"
-        textColor="primary"
-      >
-        {state.langs.map((item) => {
-          return (
-            <Tab
-              style={{ minWidth: "auto" }}
-              label={<strong>{item.name}</strong>}
-              key={item.code}
-            />
-          );
-        })}
-      </Tabs>
-      <div className={classes.center} style={{ marginLeft: "15px" }}>
-        <Fab
-          className={classes.dropdownButton}
-          onClick={handleDropButton}
-          elevation={0}
-          size="small"
+      {breakPoint ? (
+        <Tabs
+          value={inputTabID}
+          onChange={(e, id) => handleTabID(e, id)}
+          indicatorColor="primary"
+          textColor="primary"
         >
-          {languagesOpen.left ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-        </Fab>
-      </div>
+          {state.langs.map((item) => {
+            return (
+              <Tab
+                style={{ minWidth: "auto" }}
+                label={<strong>{item.name}</strong>}
+                key={item.code}
+              />
+            );
+          })}
+        </Tabs>
+      ) : (
+        <Button
+          onClick={handleDropButton}
+          className={classes.breakPointButton}
+          color="primary"
+        >
+          <strong>{state.langs[state.active].name}</strong>
+        </Button>
+      )}
+      {breakPoint && (
+        <div className={classes.center} style={{ marginLeft: "15px" }}>
+          <Fab
+            className={classes.dropdownButton}
+            onClick={handleDropButton}
+            elevation={0}
+            size="small"
+          >
+            {languagesOpen.left ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+          </Fab>
+        </div>
+      )}
     </div>
   );
 };

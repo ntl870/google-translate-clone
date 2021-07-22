@@ -28,7 +28,6 @@ const TextInputLeft = () => {
           });
           setOutputText(data.translatedText);
         } catch (err) {
-          console.log(err);
         } finally {
           setTranslating(false);
         }
@@ -57,11 +56,8 @@ const TextInputLeft = () => {
             tempReduxInput.langs[0].name = `${detectedLangName} - detected`;
             dispatch({ type: "INPUT", payload: { data: tempReduxInput } });
             setOutputText(data.translatedText);
-          } catch (err) {
-            console.log(err);
-          }
+          } catch (err) {}
         } catch (err) {
-          console.log(err);
         } finally {
           setTranslating(false);
         }
@@ -73,7 +69,6 @@ const TextInputLeft = () => {
     }
   };
 
-  
   useEffect(() => {
     const handleTranslate = setTimeout(() => {
       translateText(inputText, inputLang.code, outputLang.code);

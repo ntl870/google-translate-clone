@@ -3,14 +3,14 @@ const typography = {
   fontFamily: [
     "-apple-system",
     "BlinkMacSystemFont",
-    "\"Segoe UI\"",
+    '"Segoe UI"',
     "Roboto",
-    "\"Helvetica Neue\"",
+    '"Helvetica Neue"',
     "Arial",
     "sans-serif",
-    "\"Apple Color Emoji\"",
-    "\"Segoe UI Emoji\"",
-    "\"Segoe UI Symbol\"",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
   ].join(","),
 };
 

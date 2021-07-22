@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/styles";
 const sideDrawerWidth = 280;
-export default makeStyles((theme) => ({
+export default makeStyles(() => ({
   root: {
     display: "flex",
   },
