@@ -51,7 +51,7 @@ const LanguagesBarRight = () => {
                 key={item.code}
               />
             );
-          })}
+          })} 
         </Tabs>
       ) : (
         <Button
